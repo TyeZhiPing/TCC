@@ -1,7 +1,7 @@
 <?php
 $servername = "Endpoint";
 $username = "admin";
-$password = "admin123";
+$password = "admin12345";
 $dbname = "TCCDB";
 
 // Create connection
