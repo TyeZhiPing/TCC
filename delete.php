@@ -2,15 +2,15 @@
 include 'connection.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_POST['id'];
-    $conn->query("DELETE FROM items WHERE id=$id");
+    $conn->query("DELETE FROM products WHERE id=$id");
 
     echo "<script>
-        alert('Delete successfully! Redirect back to view page.');
+        alert('Successfully deleted!');
         window.location.href = 'view.php';
     </script>";
     exit;
 }
-$result = $conn->query("SELECT * FROM items");
+$result = $conn->query("SELECT * FROM products");
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +19,7 @@ $result = $conn->query("SELECT * FROM items");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete Items</title>
+    <title>Delete Product</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -30,10 +30,10 @@ $result = $conn->query("SELECT * FROM items");
     </nav>
 
     <div class="container">
-        <h1>Delete an Item</h1>
+        <h1>Delete Product</h1>
         <form method="POST">
             <div class="form-group">
-                <label for="id">Select Item:</label>
+                <label for="id">Select Product:</label>
                 <select id="id" name="id" class="input-field">
                     <?php while ($row = $result->fetch_assoc()) { ?>
                         <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
@@ -42,7 +42,7 @@ $result = $conn->query("SELECT * FROM items");
 
             </div>
 
-            <button type="submit" class="button">Delete Item</button>
+            <button type="submit" class="button">Delete Product</button>
         </form>
     </div>
 
