@@ -3,15 +3,15 @@ include 'connection.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_POST['id'];
     $name = $_POST['name'];
-    $conn->query("UPDATE items SET name='$name' WHERE id=$id");
+    $conn->query("UPDATE products SET name='$name' WHERE id=$id");
 
     echo "<script>
-        alert('Edit successfully! Redirect back to view page.');
+        alert('Successfully edited!');
         window.location.href = 'view.php';
     </script>";
     exit;
 }
-$result = $conn->query("SELECT * FROM items");
+$result = $conn->query("SELECT * FROM products");
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ $result = $conn->query("SELECT * FROM items");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Items</title>
+    <title>Edit products</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -31,10 +31,10 @@ $result = $conn->query("SELECT * FROM items");
     </nav>
 
     <div class="container">
-        <h1>Edit Item</h1>
+        <h1>Edit Product</h1>
         <form method="POST">
             <div class="form-group">
-                <label for="id">Select Item:</label>
+                <label for="id">Select Product:</label>
                 <select id="id" name="id" class="input-field">
                     <?php while ($row = $result->fetch_assoc()) { ?>
                         <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
@@ -43,11 +43,11 @@ $result = $conn->query("SELECT * FROM items");
             </div>
 
             <div class="form-group">
-                <label for="name">New Name:</label>
+                <label for="name">New Product:</label>
                 <input type="text" id="name" name="name" class="input-field" required>
             </div>
 
-            <button type="submit" class="button">Edit Item</button>
+            <button type="submit" class="button">Edit Product</button>
         </form>
     </div>
 
