@@ -1,6 +1,6 @@
 <?php
 include 'connection.php';
-$result = $conn->query("SELECT * FROM items");
+$result = $conn->query("SELECT * FROM products");
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +9,7 @@ $result = $conn->query("SELECT * FROM items");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Items</title>
+    <title>View Product</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -20,12 +20,12 @@ $result = $conn->query("SELECT * FROM items");
     </nav>
 
     <div class="container">
-        <h1>View Items List</h1>
+        <h1>View Product List</h1>
         <table>
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Item</th>
+                    <th>Product</th>
                 </tr>
             </thead>
             <tbody>
