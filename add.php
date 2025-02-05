@@ -2,9 +2,9 @@
 include 'connection.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
-    $conn->query("INSERT INTO items (name) VALUES ('$name')");
+    $conn->query("INSERT INTO products (name) VALUES ('$name')");
     echo "<script>
-        alert('Added successfully! Redirect back to view page.');
+        alert('Successfully added!');
         window.location.href = 'view.php';
     </script>";
     exit;
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Items</title>
+    <title>Add Product</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -28,13 +28,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </nav>
 
     <div class="container">
-        <h1>Add a New Item</h1>
+        <h1>Add New Product</h1>
         <form method="POST">
             <div class="form-group">
-                <label for="name">Item Name:</label>
+                <label for="name">Product Name:</label>
                 <input type="text" id="name" name="name" class="input-field" required>
             </div>
-            <button type="submit" class="button">Add Item</button>
+            <button type="submit" class="button">Add Product</button>
         </form>
     </div>
 
